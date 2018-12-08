@@ -1,0 +1,4 @@
+clincal/genome/
+venv/
+cosmosEHR/settings.py
+.DS_store
