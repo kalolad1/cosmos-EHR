@@ -3,6 +3,7 @@
 *.pot
 *.pyc
 __pycache__/
+*/__pycache__/
 /media
 /static
 local_settings.py
@@ -12,3 +13,4 @@ venv/
 cosmosEHR/settings.py
 .DS_store
 clinical/static/
+.idea/

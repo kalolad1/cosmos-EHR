@@ -1,7 +1,12 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
-class DemographicData(models.Model):
+class Patient(models.Model):
+    # For current implementation, each patient is associated with exactly one physician.
+    physician = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # Demographic information
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     date_of_birth = models.DateField()
@@ -16,9 +21,11 @@ class DemographicData(models.Model):
     PACIFIC_ISLANDER = 'pacific islander'
     HISPANIC = 'hispanic'
     TWO_OR_MORE_RACES = 'two or more races'
+    ASIAN = 'asian'
     RACES = (
         (AMERICAN_INDIAN, 'American Indian'),
         (ALASKA_NATIVE, 'Alaska Native'),
+        (ASIAN, 'Asian'),
         (WHITE, 'White'),
         (BLACK_OR_AFRICAN_AMERICAN, 'Black or African American'),
         (NATIVE_HAWAIIAN, 'Native Hawaiian'),
@@ -43,15 +50,12 @@ class DemographicData(models.Model):
         choices=SEX,
     )
 
+    def __str__(self):
+        return self.first_name + " " + self.last_name
 
-class Patient(models.Model):
-    # Relationships
-    # DemographicData
-    demographic_data = models.OneToOneField(
-        DemographicData,
-        primary_key=True,
-        on_delete=models.CASCADE
-    )
+
+
+
 
 
 
