@@ -13,5 +13,5 @@ venv/
 cosmosEHR/settings.py
 .DS_store
 clinical/static/
-.idea/
+*.idea/
 genomes/
