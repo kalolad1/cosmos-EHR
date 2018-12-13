@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if error %}
+        {{ error }}
+    {% endif %}
+
+    <div class="container">
+        <h1>Create patient.</h1>
+        <form method="POST" action="{% url 'create-patient' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            First name:
+            <br /><input type="text" name="first-name" /><br />
+
+            Last name:
+            <br /><input type="text" name="last-name" /><br />
+
+            Date of birth:
+            <br /><input type="date" name="date-of-birth" /><br />
+
+            Email:
+            <br /><input type="email" name="email" /><br />
+
+            Address:
+            <br /><input type="text" name="address" /><br />
+
+            Sex:
+            <br /><input type="radio" name="sex" value="male"> Male<br>
+            <input type="radio" name="sex" value="female"> Female<br>
+
+            {# TODO make choices avaialable for race. #}
+            Race:
+            <br /><input type="text" name="race" /><br />
+
+            Genome:
+            <br /><input type="file" name="genome" /><br />
+
+            <br /><input type="submit" value="Create patient!" /><br />
+        </form>
+    </div>
+{% endblock %}
+

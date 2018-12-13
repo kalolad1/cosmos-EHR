@@ -1,22 +1,30 @@
-<h1>Sign up for CosmosEHR</h1>
+{% extends 'base.html' %}
 
-{% if error %}
-    {{ error }}
-{% endif %}
+{% block content %}
+    <br />
+    <h1 align="center">Sign up for CosmosEHR</h1>
 
+    {% if error %}
+        {{ error }}
+    {% endif %}
 
-<form method="POST" action="{% url 'signup' %}">
-    {% csrf_token %}
-    Username:
-    <br /><input type="text" name="username" /><br />
+    <br />
+    <br />
+    <div align="center">
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            Username:
+            <br /><input type="text" name="username" /><br />
 
-    Password:
-    <br /><input type="password" name="password" /><br />
+            Password:
+            <br /><input type="password" name="password" /><br />
 
-    Confirm password:
-    <br /><input type="password" name="password_check" /><br />
+            Confirm password:
+            <br /><input type="password" name="password_check" /><br />
 
-    <br /><input type="submit" value="Sign up" /><br />
-</form>
+            <br /><input type="submit" class="btn btn-primary my-2" value="Sign up" /><br />
+        </form>
+    </div>
+{% endblock %}
 
 

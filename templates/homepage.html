@@ -1,4 +1,19 @@
-<h1 align="center">Cosmos EHR Homepage</h1>
+{% extends 'base.html' %}
 
-<br />
-<a href="http://localhost:7000/clinicaltools">Go to clinical tools</a>
+
+
+{% block content %}
+    </br>
+    <h1 align="center">Cosmos EHR</h1>
+
+    <div align="center">
+        <a href="{% url 'clinical/store-variants' %}">Load variant samples</a>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+{% endblock %}

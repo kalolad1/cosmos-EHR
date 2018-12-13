@@ -17,7 +17,7 @@ def signup(request):
             except User.DoesNotExist:
                 user = User.objects.create_user(username=username, password=password)
                 auth.login(request, user)
-                return redirect('home')
+                return redirect('clinical/home')
         else:
             return render(request, 'accounts/signup.html', {'error': 'Passwords do not match!'})
 
@@ -34,7 +34,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('home')
+            return redirect('clinical/home')
         else:
             return render(request, 'accounts/login.html', {'error': 'Username or password is incorrect.'})
 
@@ -46,5 +46,3 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
-
-    return render(request, 'accounts/logout.html')

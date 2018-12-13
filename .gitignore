@@ -14,3 +14,4 @@ cosmosEHR/settings.py
 .DS_store
 clinical/static/
 .idea/
+genomes/

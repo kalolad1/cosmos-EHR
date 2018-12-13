@@ -1,16 +1,24 @@
-<h1>Login for a CosmosEHR account</h1>
+{% extends 'base.html' %}
 
-{% if error %}
-    {{ error }}
-{% endif %}
+{% block content %}
+    <br />
+    <h1 align="center">Login for a CosmosEHR account</h1>
 
-<form method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-    Username:
-    <br /><input type="text" name="username" /><br />
+    {% if error %}
+        {{ error }}
+    {% endif %}
+    <div align="center">
+        <br />
+        <br />
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            Username:
+            <br /><input type="text" name="username" /><br />
 
-    Password:
-    <br /><input type="password" name="password" /><br />
+            Password:
+            <br /><input type="password" name="password" /><br />
 
-    <br /><input type="submit" value="Login" /><br />
-</form>
+            <br /><input type="submit" class="btn btn-primary my-2" value="Login" /><br />
+        </form>
+    </div>
+{% endblock %}
