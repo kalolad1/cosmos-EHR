@@ -4,9 +4,12 @@
 import os.path
 from clinical.models import Variant
 
+# Constants
+# These variables hold path constants.
 VARIANT_TEXT_FILE_PATH = 'static/variant_samples/variant_samples.txt'
 BASE = os.path.dirname(os.path.abspath(__file__))
 
+# An array with all of the attributes for a Variant.
 VARIANT_ATTRIBUTES = [
     '#AlleleID',
     'Type',
@@ -49,8 +52,10 @@ def store_all_variant_samples():
     file = open(os.path.join(BASE, VARIANT_TEXT_FILE_PATH), 'r')
 
     for line in file:
+        # Creates an array out of a tab-separated row of information.
         variant_row = line.split('\t')
 
+        # Creates a new Variant object and updates all of its important fields.
         new_variant = Variant()
         new_variant.gene_id = variant_row[VARIANT_ATTRIBUTES.index('GeneID')]
         new_variant.gene_name = variant_row[VARIANT_ATTRIBUTES.index('GeneSymbol')]
@@ -61,5 +66,6 @@ def store_all_variant_samples():
         new_variant.clinical_significance = variant_row[VARIANT_ATTRIBUTES.index('ClinicalSignificance')]
         new_variant.reference_allele = variant_row[VARIANT_ATTRIBUTES.index('ReferenceAllele')]
         new_variant.alternate_allele = variant_row[VARIANT_ATTRIBUTES.index('AlternateAllele')]
-        new_variant.save()
 
+        # Saves the object in the database.
+        new_variant.save()

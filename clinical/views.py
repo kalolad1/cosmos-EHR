@@ -1,23 +1,33 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Patient, Variant
-from clinical.Helper import variant_parsing_script, genome_scanner
+from clinical.helper import variant_parsing_script, genome_scanner
 
 
 def home(request):
+    """
+    This view sends the user home with all of their stored patients.
+    """
+    # Retrieves all of the users patients from the database.
     all_patients = Patient.objects.filter(physician=request.user)
     return render(request, 'clinical/home.html', {'patients': all_patients})
 
 
 def store_variants(request):
+    """
+    This allows all the variants to be uploaded into the database. Should only be used once, or
+    when new variants are added.
+    """
     variant_parsing_script.store_all_variant_samples()
     return render(request, 'homepage.html')
 
 
 @login_required
 def create_patient(request):
+    # If a user tries to create a new patient.
     if request.method == 'POST':
         try:
+            # Retrieve all of the user input and check for an error.
             first_name = request.POST['first-name']
             last_name = request.POST['last-name']
             date_of_birth = request.POST['date-of-birth']
@@ -27,6 +37,7 @@ def create_patient(request):
         except KeyError:
             return render(request, 'clinical/create-patient.html', {'error': 'Select fields needed!'})
 
+        # Store the patient object in the database.
         patient = Patient(first_name=first_name, last_name=last_name, date_of_birth=date_of_birth,
                           sex=sex, race=race, genome=genome, physician=request.user)
         email = request.POST['email']
@@ -36,27 +47,31 @@ def create_patient(request):
         patient.save()
         return redirect('clinical/home')
 
+    # Bring the user to the create-patient page.
     return render(request, 'clinical/create-patient.html')
 
 
 @login_required
 def entry(request, patient_id):
+    # Gets the relevant patient.
     patient = Patient.objects.get(id=patient_id)
     return render(request, 'clinical/entry.html', {'patient': patient})
 
 
 @login_required
 def variant_display(request, patient_id):
-    # Retrieve input
+    # Retrieve input from user.
     patient = Patient.objects.get(id=patient_id)
     diagnosis_list = request.POST['diagnosis-list']
 
+    # Retrieves all of the relevant variants based on the diagnosis list.
     variants = Variant.retrieve_variants_from_diagnosis_list(diagnosis_list)
     return render(request, 'clinical/variant-display.html', {'patient': patient, 'variants': variants})
 
 
 @login_required
 def genome_scan(request, variant_id):
+    # Scans the genome to check for an SNP.
     variant = Variant.objects.get(id=variant_id)
     scan = genome_scanner.GenomeScanner(variant)
 

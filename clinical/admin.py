@@ -4,4 +4,3 @@ from .models import Variant
 
 admin.site.register(Patient)
 admin.site.register(Variant)
-

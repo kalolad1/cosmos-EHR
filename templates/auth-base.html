@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cosmos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{% static 'accounts/loginutility/images/icons/favicon.ico' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/vendor/bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/fonts/iconic/css/material-design-iconic-font.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/vendor/animate/animate.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/vendor/css-hamburgers/hamburgers.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/vendor/animsition/css/animsition.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/vendor/select2/select2.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/vendor/daterangepicker/daterangepicker.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/css/util.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/loginutility/css/main.css' %}"/>
+</head>
+
+<body>
+<div class="limiter">
+    <div class="container-login100" style="background-image: url({% static 'accounts/loginutility/images/bg-01.jpg' %});">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+<div id="dropDownSelect1"></div>
+
+{#<footer class="text-muted">#}
+{#    <div class="container">#}
+{#        <br />#}
+{#        <p>&copy; Cosmos {% now "Y" %}</p>#}
+{#    </div>#}
+{#</footer>#}
+
+<script src="{% static 'accounts/loginutility/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'accounts/loginutility/vendor/animsition/js/animsition.min.js' %}"></script>
+<script src="{% static 'accounts/loginutility/vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'accounts/loginutility/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'accounts/loginutility/vendor/select2/select2.min.css'%}"></script>
+<script src="{% static 'accounts/loginutility/vendor/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'accounts/loginutility/vendor/daterangepicker/daterangepicker.js'%}"></script>
+<script src="{% static 'accounts/loginutility/vendor/countdowntime/countdowntime.js' %}"></script>
+<script src="{% static 'accounts/loginutility/js/main.js' %}"></script>
+</body>
+</html>
