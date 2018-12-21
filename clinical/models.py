@@ -2,8 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import date
 from django.utils import timezone
-from . import choices
-from clinical.helper import constants
+from clinical.helper import constants, choices
 
 
 class Patient(models.Model):
@@ -31,21 +30,30 @@ class Patient(models.Model):
     # should be uploaded.
     genome = models.FileField(upload_to='genomes/', blank=True)
 
+    def full_name(self):
+        """
+        Returns the full name of the patient.
+
+        Returns:
+            string: The full name of the patient.
+        """
+        return self.first_name + " " + self.last_name
+
     def __str__(self):
         """
         Returns the string representation of the patient object.
 
         Returns:
-            A string containing the name of the patient.
+            string: Full ame of the patient.
         """
-        return self.first_name + " " + self.last_name
+        return self.full_name()
 
     def get_age(self):
         """
         Calculates the age of the patient based on their date of birth.
 
         Returns:
-            The age of the patient as an integer.
+            int: The age of the patient.
         """
         days_old = (date.today() - self.date_of_birth).days
         return days_old // 365
@@ -55,18 +63,9 @@ class Patient(models.Model):
         Formats the date of the patients first visit in a readable way.
 
         Returns:
-            The date of the first visit as a string.
+            string: The date of the first visit.
         """
         return self.date_created.strftime("%b %e %Y'")
-
-    def full_name(self):
-        """
-        Returns the full name of the patient.
-
-        Returns:
-            The full name of the patient as a string.
-        """
-        return self.first_name + " " + self.last_name
 
 
 class Variant(models.Model):
@@ -85,7 +84,7 @@ class Variant(models.Model):
         Returns a string representation of a Variant object.
 
         Returns:
-             String containing the gene name of the variant.
+             string: String containing the gene name of the variant.
         """
         return self.gene_name
 
@@ -94,7 +93,7 @@ class Variant(models.Model):
         Returns the diagnosis related to the variant object.
 
         Returns:
-             String representation of a diagnosis
+             string: String representation of a diagnosis
         """
         for diagnosis, gene in constants.DIAGNOSES_TO_GENE.items():
             if self.gene_id == gene:
@@ -110,7 +109,7 @@ class Variant(models.Model):
             d_list: A string containing comma separated diagnoses.
 
         Returns:
-             A set of Variant objects which are relevant to all the diagnoses.
+             QuerySet: A set of Variant objects which are relevant to all the diagnoses.
         """
         # Creates an array of diagnoses.
         d_list_array = d_list.split(', ')
@@ -127,7 +126,7 @@ class Variant(models.Model):
 class HealthEncounter(models.Model):
     # Parties involved.
     physician = models.ForeignKey(User, on_delete=models.CASCADE)
-    patient = models.OneToOneField(Patient, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
 
     # Logistical information.
     date = models.DateField(default=timezone.now)
@@ -143,7 +142,7 @@ class HealthEncounter(models.Model):
         Returns a string representation of a HealthEncounter object.
 
         Returns:
-             String containing the patient name, physician name, and date.
+             string: The patient name, physician name, and date.
         """
         return self.patient.full_name() + " with " + self.physician.username + " on " + self.date_formatted()
 
@@ -152,9 +151,18 @@ class HealthEncounter(models.Model):
         Formats the date of the Health Encounter in a readable way.
 
         Returns:
-            The date of the Health Encounter as a string.
+            string: The date of the Health Encounter.
         """
-        return self.date.strftime("%b %e %Y'")
+        return self.date.strftime("%b %e %Y")
+
+    def he_type_fa_icon(self):
+        """
+        Returns the fa icon name according to the health encounter type.
+
+        Returns:
+            string: Fa icon name.
+        """
+        return choices.HE_TO_ICON[self.type_of_encounter]
 
 
 

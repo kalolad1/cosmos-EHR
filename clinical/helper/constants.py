@@ -1,4 +1,4 @@
-# Constant map of diagnoses mapped to genes.
+# Dictionary of diagnoses mapped to genes.
 DIAGNOSES_TO_GENE = {
     "Colon Cancer": '5395',
     "Li-Fraumeni Syndrome": '7157',
@@ -8,3 +8,5 @@ DIAGNOSES_TO_GENE = {
     "Myofibrillar Myopathy": "2318",
     "Alzheimer's Disease": "5664",
 }
+
+

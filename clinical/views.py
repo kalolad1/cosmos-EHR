@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Patient, Variant
+from .models import Patient, Variant, HealthEncounter
 from clinical.helper import variant_parsing_script, genome_scanner
+from .forms import HealthEncounterForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 @login_required
@@ -17,7 +20,31 @@ def home(request):
 @login_required
 def patient_story(request, patient_id):
     patient = Patient.objects.get(id=patient_id)
-    return render(request, 'clinical/patient-story.html', {'patient': patient})
+    health_encounters = HealthEncounter.objects.filter(patient=patient)
+
+    return render(request, 'clinical/patient-story.html', {'patient': patient,
+                                                           'health_encounters': health_encounters})
+
+
+@login_required
+def add_health_encounter(request, patient_id):
+    patient = Patient.objects.get(id=patient_id)
+    if request.method == 'POST':
+        form = HealthEncounterForm(request.POST)
+
+        if form.is_valid():
+            encounter = form.save(commit=False)
+            encounter.patient = patient
+            encounter.physician = request.user
+            encounter.save()
+            return HttpResponseRedirect(reverse('clinical/patient-story', args=(patient_id,)))
+        else:
+            error = 'Please fill out all of the fields.'
+            return render(request, 'clinical/add-health-encounter.html/' + patient_id, {'error': error})
+
+    else:
+        form = HealthEncounterForm()
+        return render(request, 'clinical/add-health-encounter.html', {'patient': patient, 'form': form})
 
 
 def store_variants(request):
