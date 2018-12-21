@@ -2,7 +2,7 @@
 import os.path
 from Bio import SeqIO
 
-# Contants
+# Constants
 # Where the genome is kept.
 GENOME_DIRECTORY_PATH = 'static/genome/'
 
@@ -37,7 +37,6 @@ class GenomeScanner:
     # A GenomeScanner class takes in a Variant object.
     def __init__(self, variant_to_scan):
         self.scan_for_snp(variant_to_scan)
-
 
     def scan_for_snp(self, variant_to_scan):
         """

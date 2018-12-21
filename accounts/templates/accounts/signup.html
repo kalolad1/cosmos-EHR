@@ -1,7 +1,7 @@
 {% extends 'auth-base.html' %}
 
 {% block content %}
-    <form class="login100-form validate-form" method="POST" action="{% url 'signup' %}">
+    <form class="login100-form validate-form" method="POST" action="{% url 'accounts/signup' %}">
         {% csrf_token %}
         <span class="login100-form-title p-b-49">Sign Up</span>
         <h5 align="center">{{ error }}</h5>

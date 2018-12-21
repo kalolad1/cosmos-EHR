@@ -8,7 +8,7 @@
 
     <div class="container">
         <h1>Create patient.</h1>
-        <form method="POST" action="{% url 'create-patient' %}" enctype="multipart/form-data">
+        <form method="POST" action="{% url 'clinical/create-patient' %}" enctype="multipart/form-data">
             {% csrf_token %}
             First name:
             <br /><input type="text" name="first-name" /><br />

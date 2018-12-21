@@ -8,7 +8,7 @@
             <h1 class="jumbotron-heading">Clinical Tools</h1>
             <p class="lead text-muted"></p>
             <p>
-                <a href="{% url 'create-patient' %}" class="btn btn-primary my-2">Add patient</a>
+                <a href="{% url 'clinical/create-patient' %}" class="btn btn-primary my-2">Add patient</a>
             </p>
         </div>
         <br />
@@ -26,7 +26,7 @@
                                         <div class="btn-group">
                                             <a role="button" href="javascript:{document.getElementById('go-to-entry-{{ patient.id }}').submit();}" class="btn btn-sm btn-outline-secondary">View</a>
                                         </div>
-                                        <form id="go-to-entry-{{ patient.id }}" method="GET" action="{% url 'clinical/entry' patient_id=patient.id %}">
+                                        <form id="go-to-entry-{{ patient.id }}" method="GET" action="{% url 'clinical/patient-story' patient_id=patient.id %}">
                                         </form>
                                         <small class="text-muted">First visit: {{ patient.date_of_first_visit }}</small>
                                     </div>

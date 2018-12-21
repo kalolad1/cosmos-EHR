@@ -4,13 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Darshan">
+    <meta name="author" content="Darshan Kalola">
 
-    <title>Cosmos</title>
+    <title>Cosmos EHR Clinical Tools</title>
 
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -21,13 +19,10 @@
             {% if user.is_authenticated %}
                 <a class="btn btn-outline-success">{{ user.username }}</a>
                 <a class="btn btn-outline-primary" href="javascript:{document.getElementById('logout').submit();}" onclick="">Logout</a>
-                <form id="logout" method="POST" action="{% url 'logout' %}">
+                <form id="logout" method="POST" action="{% url 'accounts/logout' %}">
                     {% csrf_token %}
                     <input type="hidden" />
                 </form>
-            {% else %}
-                <a class="btn btn-outline-primary" href="{% url 'signup' %}">Sign up</a>
-                <a class="btn btn-outline-secondary" href="{% url 'login' %}">Login in</a>
             {% endif %}
         </nav>
     </div>

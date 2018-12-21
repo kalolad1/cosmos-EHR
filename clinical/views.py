@@ -4,6 +4,7 @@ from .models import Patient, Variant
 from clinical.helper import variant_parsing_script, genome_scanner
 
 
+@login_required
 def home(request):
     """
     This view sends the user home with all of their stored patients.
@@ -11,6 +12,12 @@ def home(request):
     # Retrieves all of the users patients from the database.
     all_patients = Patient.objects.filter(physician=request.user)
     return render(request, 'clinical/home.html', {'patients': all_patients})
+
+
+@login_required
+def patient_story(request, patient_id):
+    patient = Patient.objects.get(id=patient_id)
+    return render(request, 'clinical/patient-story.html', {'patient': patient})
 
 
 def store_variants(request):

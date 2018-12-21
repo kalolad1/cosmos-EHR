@@ -7,10 +7,9 @@ __pycache__/
 /media
 /static
 local_settings.py
-db.sqlite3
 clinical/genome/
 venv/
-cosmosEHR/settings.py
+config/
 .DS_store
 clinical/static/
 *.idea/
