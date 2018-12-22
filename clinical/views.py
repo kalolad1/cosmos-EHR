@@ -46,6 +46,11 @@ def add_health_encounter(request, patient_id):
         form = HealthEncounterForm()
         return render(request, 'clinical/add-health-encounter.html', {'patient': patient, 'form': form})
 
+@login_required
+def health_encounter_view(request, health_encounter_id):
+    health_encounter = HealthEncounter.objects.get(id=health_encounter_id)
+    return render(request, 'clinical/health-encounter-view.html', {'health_encounter': health_encounter})
+
 
 def store_variants(request):
     """

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{% static 'patientstory/css/base.css' %}">
     <link rel="stylesheet" href="{% static 'patientstory/css/vendor.css' %}">
     <link rel="stylesheet" href="{% static 'patientstory/css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- script
     ================================================== -->
@@ -55,7 +56,7 @@
 
             <ul class="header-nav__list">
                 <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                <li><a class="smoothscroll" href="#timeline" title="about">Timeline</a></li>
+                <li><a class="smoothscroll" href="#familyhistory" title="about">Family History</a></li>
                 <li><a class="smoothscroll"  href="#services" title="services">Services</a></li>
                 <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
                 <li><a class="smoothscroll"  href="#clients" title="clients">Clients</a></li>
@@ -85,26 +86,29 @@
 
     <div class="home-content">
 
-        <div class="row home-content__main">
-            <div align="center">
-                <img src="{% static 'patientstory/images/profile_correct.JPG' %}" class="img-circle" width="200" alt="patientstory"/>
-            </div>
+
+        <div align="center">
+            <img src="{% static 'patientstory/images/profile_correct.JPG' %}" class="img-circle" width="200" alt="patientstory"/>
+        </div>
 
 
-            <br />
-            <br />
+        <br />
+        <br />
+        <br />
 
+        <div align="center">
             <h3>Every person has a story.</h3>
 
             <h1>
                 What's {{ patient.full_name }}'s?
             </h1>
+        </div>
 
-            <div class="home-content__buttons">
-
-            </div>
+        <div class="home-content__buttons">
 
         </div>
+
+
 
         <div class="home-content__scroll">
             <a href="#timeline" class="scroll-link smoothscroll">
@@ -138,7 +142,7 @@
                     <div class="main-timeline">
                         {% for encounter in health_encounters %}
                             <div class="timeline">
-                                <a href="#" class="timeline-content">
+                                <a href="{% url 'clinical/health-encounter-view' health_encounter_id=encounter.id %}" class="timeline-content">
                                     <div class="timeline-icon">
                                         <i class="{{ encounter.he_type_fa_icon }}"></i>
                                     </div>
@@ -183,100 +187,33 @@
 </section> <!-- end s-about -->
 
 
-{#<!-- services#}
-{#================================================== -->#}
-{#<section id='services' class="s-services">#}
-{##}
-{#    <div class="row section-header has-bottom-sep" data-aos="fade-up">#}
-{#        <div class="col-full">#}
-{#            <h3 class="subhead">What We Do</h3>#}
-{#            <h1 class="display-2">We’ve got everything you need to launch and grow your business</h1>#}
-{#        </div>#}
-{#    </div> <!-- end section-header -->#}
-{##}
-{#    <div class="row services-list block-1-2 block-tab-full">#}
-{##}
-{#        <div class="col-block service-item" data-aos="fade-up">#}
-{#            <div class="service-icon">#}
-{#                <i class="icon-paint-brush"></i>#}
-{#            </div>#}
-{#            <div class="service-text">#}
-{#                <h3 class="h2">Brand Identity</h3>#}
-{#                <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.#}
-{#                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.#}
-{#                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <div class="col-block service-item" data-aos="fade-up">#}
-{#            <div class="service-icon">#}
-{#                <i class="icon-group"></i>#}
-{#            </div>#}
-{#            <div class="service-text">#}
-{#                <h3 class="h2">Illustration</h3>#}
-{#                <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.#}
-{#                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.#}
-{#                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <div class="col-block service-item" data-aos="fade-up">#}
-{#            <div class="service-icon">#}
-{#                <i class="icon-megaphone"></i>#}
-{#            </div>#}
-{#            <div class="service-text">#}
-{#                <h3 class="h2">Marketing</h3>#}
-{#                <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.#}
-{#                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.#}
-{#                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <div class="col-block service-item" data-aos="fade-up">#}
-{#            <div class="service-icon">#}
-{#                <i class="icon-earth"></i>#}
-{#            </div>#}
-{#            <div class="service-text">#}
-{#                <h3 class="h2">Web Design</h3>#}
-{#                <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.#}
-{#                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.#}
-{#                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <div class="col-block service-item" data-aos="fade-up">#}
-{#            <div class="service-icon">#}
-{#                <i class="icon-cube"></i>#}
-{#            </div>#}
-{#            <div class="service-text">#}
-{#                <h3 class="h2">Packaging Design</h3>#}
-{#                <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.#}
-{#                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.#}
-{#                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#        <div class="col-block service-item" data-aos="fade-up">#}
-{#            <div class="service-icon"><i class="icon-lego-block"></i></div>#}
-{#            <div class="service-text">#}
-{#                <h3 class="h2">Web Development</h3>#}
-{#                <p>Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.#}
-{#                    Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.#}
-{#                    Sunt suscipit voluptas ipsa in tempora esse soluta sint.#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#    </div> <!-- end services-list -->#}
-{##}
-{#</section> <!-- end s-services -->#}
-{##}
-{##}
+<!-- services
+================================================== -->
+<section id='familyhistory'>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div align="center">
+        <h3 class="subhead">Family History</h3>
+    </div>
+
+
+
+</section> <!-- end s-services -->
+
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+        Cras justo odio
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+    <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+</div>
+
+
 {#<!-- works#}
 {#================================================== -->#}
 {#<section id='works' class="s-works">#}
@@ -791,6 +728,7 @@
 <script src="{% static 'patientstory/js/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'patientstory/js/plugins.js' %}"></script>
 <script src="{% static 'patientstory/js/main.js' %}"></script>
+
 
 </body>
 
