@@ -1,7 +1,10 @@
 from django.contrib import admin
-from .models import Patient, Variant, HealthEncounter
+from clinical import models
 
 
-admin.site.register(Patient)
-admin.site.register(Variant)
-admin.site.register(HealthEncounter)
+admin.site.register(models.Patient)
+admin.site.register(models.Variant)
+admin.site.register(models.HealthEncounter)
+# admin.site.register(models.Relative)
+# admin.site.register(models.Disease)
+# admin.site.register(models.Medication)

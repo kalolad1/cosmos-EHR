@@ -1,5 +1,5 @@
 # For Patient model.
-# Sex
+# Sex.
 MALE = 'male'
 FEMALE = 'female'
 SEX = (
@@ -7,7 +7,7 @@ SEX = (
     (FEMALE, 'Female'),
 )
 
-# Race
+# Race.
 AMERICAN_INDIAN = 'american indian'
 ALASKA_NATIVE = 'alaska native'
 WHITE = 'white'
@@ -29,8 +29,31 @@ RACE = (
     (TWO_OR_MORE_RACES, 'Two or more races'),
 )
 
+
+# For the Relative model.
+# Type of relationship.
+BROTHER = 'brother'
+SISTER = 'sister'
+FATHER = 'father'
+MOTHER = 'mother'
+GRANDFATHER_PATERNAL = 'grandfather paternal'
+GRANDMOTHER_PATERNAL = 'grandmother paternal'
+GRANDFATHER_MATERNAL = 'grandfather maternal'
+GRANDMOTHER_MATERNAL = 'grandmother maternal'
+RELATIONSHIP = (
+    (BROTHER, 'Brother'),
+    (SISTER, 'Sister'),
+    (FATHER, 'Father'),
+    (MOTHER, 'Mother'),
+    (GRANDFATHER_PATERNAL, 'Grandfather Paternal'),
+    (GRANDMOTHER_PATERNAL, 'Grandmother Paternal'),
+    (GRANDFATHER_MATERNAL, 'Grandfather Maternal'),
+    (GRANDMOTHER_MATERNAL, 'Grandmother Maternal'),
+)
+
+
 # For HealthEncounter model.
-# Type of health encounter
+# Type of health encounter.
 SURGERY = 'surgery'
 ROUTINE_PHYSICAL = 'routine physical'
 GENERAL_ILLNESS = 'general illness'
@@ -51,6 +74,8 @@ HE_TO_ICON = {
     GENERAL_ILLNESS: '	fa fa-thermometer-4',
     EMERGENCY_ROOM: 'fa fa-flash',
 }
+
+
 
 
 

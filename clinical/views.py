@@ -14,6 +14,7 @@ def home(request):
     """
     # Retrieves all of the users patients from the database.
     all_patients = Patient.objects.filter(physician=request.user)
+
     return render(request, 'clinical/home.html', {'patients': all_patients})
 
 

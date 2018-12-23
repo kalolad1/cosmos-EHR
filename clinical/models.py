@@ -44,7 +44,7 @@ class Patient(models.Model):
         Returns the string representation of the patient object.
 
         Returns:
-            string: Full ame of the patient.
+            string: Full name of the patient.
         """
         return self.full_name()
 
@@ -66,6 +66,79 @@ class Patient(models.Model):
             string: The date of the first visit.
         """
         return self.date_created.strftime("%b %e %Y'")
+
+#
+# class Medication(models.Model):
+#     # TODO a set of names, only, pull from some database
+#     name = models.CharField(max_length=100)
+#
+#     # TODO make more structured
+#     doses = models.CharField(max_length=100)
+#     refill = models.CharField(max_length=100)
+#     instructions = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         """
+#         Returns the string representation of the Medication object.
+#
+#         Returns:
+#             string: Name of the medication.
+#         """
+#         return self.name
+#
+#
+# class Disease(models.Model):
+#     name = models.CharField(max_length=100)
+#     chronic_condition = models.BooleanField(default=False)
+#
+#     # TODO currently a char field, but change to something more structured
+#     prognosis = models.CharField(max_length=50, blank=True)
+#
+#     related_medications = models.ManyToManyField(Medication)
+#     time_of_diagnosis = models.DateField(default=timezone.now)
+#
+#     def __str__(self):
+#         """
+#         Returns the string representation of the Disease object.
+#
+#         Returns:
+#             string: Name of the disease.
+#         """
+#         return self.name
+#
+#
+# # Todo Make a Person super class
+# class Relative(models.Model):
+#     first_name = models.CharField(max_length=50)
+#     last_name = models.CharField(max_length=50)
+#
+#     date_of_birth = models.DateField()
+#     date_of_death = models.DateField(null=True, blank=True)
+#     diseases = models.ManyToManyField(Disease)
+#
+#     relationship = models.CharField(max_length=50, choices=choices.RELATIONSHIP)
+#     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+#
+#     # TODO Make it a Foreign Key to Disease?
+#     cause_of_death = models.CharField(max_length=50, blank=True)
+#
+#     def __str__(self):
+#         """
+#         Returns the string representation of the Relative object.
+#
+#         Returns:
+#             string: Full name of the relative.
+#         """
+#         return self.full_name()
+#
+#     def full_name(self):
+#         """
+#         Returns the full name of the relative.
+#
+#         Returns:
+#             string: The full name of the relative.
+#         """
+#         return self.first_name + " " + self.last_name
 
 
 class Variant(models.Model):
