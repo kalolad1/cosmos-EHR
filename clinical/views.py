@@ -22,8 +22,11 @@ def patient_story(request, patient_id):
     patient = Patient.objects.get(id=patient_id)
     health_encounters = HealthEncounter.objects.filter(patient=patient)
 
-    return render(request, 'clinical/patient-story.html', {'patient': patient,
-                                                           'health_encounters': health_encounters})
+    # return render(request, 'clinical/patient-story.html', {'patient': patient,
+    #                                                       'health_encounters': health_encounters})
+
+    # Basic web page testing
+    return render(request, 'clinical/patient-story-basic.html')
 
 
 @login_required
