@@ -5,7 +5,9 @@ urlpatterns = [
     path('store-variants/', views.store_variants, name='clinical/store-variants'),
     path('', views.home, name='clinical/home'),
     path('create-patient/', views.create_patient, name='clinical/create-patient'),
+
     path('patient-story/<int:patient_id>/', views.patient_story, name='clinical/patient-story'),
+    path('patient-story-basic/', views.patient_story_basic, name='clinical/patient-story-basic'),
 
     path('add-health-encounter/<int:patient_id>', views.add_health_encounter, name='clinical/add-health-encounter'),
     path('health-encounter-view/<int:health_encounter_id>', views.health_encounter_view, name='clinical/health-encounter-view'),

@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {# Style sheets #}
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-4.2.1-dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'patient_story_basic/css/main.css' %}">
 
     {# Favicons #}
@@ -21,17 +23,90 @@
 
 <body>
 <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'patient_story_basic/logos/logo-cosmos.png' %}" width="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Timeline</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Family History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
+{# Home section #}
+<section id="home-section">
+    <div class="home-content">
+        <img src="{% static 'patient_story_basic/images/profile.jpg'%}" alt="User profile picture.">
+        <h4>Every patient has a story.</h4>
+        <h2>What's Akshar Kalola's?</h2>
+    </div>
+</section>
+
+{# Timeline section #}
+<section id="timeline-section">
+    <div class="timeline-content-self">
+        <h1>Timeline</h1>
+
+        <div class="add-encounter-button-container">
+            <form action="{% url 'clinical/add-health-encounter' patient_id=12 %}">
+                <input type="submit" value="Add a Health Encounter" />
+            </form>
+        </div>
+
+        <div class="main-timeline">
+            <div class="timeline">
+                <a href="" class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="inner-content">
+                        <h3 class="title">NY Presbytarian</h3>
+                        <p class="date">
+                            March 12th, 2019
+                        </p>
+                        <p class="description">
+                            It was a very good surgery. It was a very good surgery. It was a very good surgery.
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="timeline">
+                <a href="" class="timeline-content">
+                    <div class="timeline-icon">
+                        <i class="fa fa-bed"></i>
+                    </div>
+                    <div class="inner-content">
+                        <h3 class="title">NY Presbytarian</h3>
+                        <p class="date">
+                            March 12th, 2019
+                        </p>
+                        <p class="description">
+                            It was a very good surgery. It was a very good surgery. It was a very good surgery.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-    <h1>This is a test of the viewport.</h1>
-
-    <img src="{% static 'patientstory/images/profile.jpg'%}">
-
-    <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-    </p>
 </body>
 </html>
