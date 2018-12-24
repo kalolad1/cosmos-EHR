@@ -22,7 +22,7 @@
     <session id="-2054447045">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.12" value="1" />
@@ -70,7 +70,7 @@
           <entry key="fa" value="23" />
           <entry key="gitignore" value="58" />
           <entry key="html" value="11529" />
-          <entry key="py" value="31160" />
+          <entry key="py" value="31189" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
@@ -79,7 +79,7 @@
           <entry key="CSS" value="840" />
           <entry key="HTML" value="11529" />
           <entry key="PLAIN_TEXT" value="105" />
-          <entry key="Python" value="31160" />
+          <entry key="Python" value="31189" />
         </counts>
       </usages-collector>
     </session>
@@ -105,16 +105,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/clinical/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+            <state relative-caret-position="30">
+              <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
-                <marker date="1545606591235" expanded="true" signature="1425:1492" ph="..." />
-                <marker date="1545606591235" expanded="true" signature="1554:2560" ph="..." />
-                <marker date="1545606591235" expanded="true" signature="2376:2560" ph="..." />
+                <marker date="1545606807834" expanded="true" signature="1077:1144" ph="..." />
+                <marker date="1545606807834" expanded="true" signature="1206:2212" ph="..." />
+                <marker date="1545606807834" expanded="true" signature="2028:2212" ph="..." />
               </folding>
             </state>
           </provider>
@@ -123,20 +122,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clinical/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="24" selection-start-column="24" selection-end-column="24" />
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-start-column="2" selection-end-line="9" selection-end-column="40" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clinical/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="131" column="31" lean-forward="true" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
+            <state relative-caret-position="263">
+              <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <marker date="1545605809049" expanded="true" signature="4416:4418" ph="..." />
+                <marker date="1545606794462" expanded="true" signature="4541:4543" ph="..." />
               </folding>
             </state>
           </provider>
@@ -499,7 +501,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="707" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3101777" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -836,31 +837,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/clinical/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clinical/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="36" column="16" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-start-column="2" selection-end-line="9" selection-end-column="40" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <marker date="1545606591235" expanded="true" signature="1425:1492" ph="..." />
-            <marker date="1545606591235" expanded="true" signature="1554:2560" ph="..." />
-            <marker date="1545606591235" expanded="true" signature="2376:2560" ph="..." />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clinical/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="131" column="31" lean-forward="true" selection-start-line="131" selection-start-column="31" selection-end-line="131" selection-end-column="31" />
+        <state relative-caret-position="263">
+          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1545605809049" expanded="true" signature="4416:4418" ph="..." />
+            <marker date="1545606794462" expanded="true" signature="4541:4543" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clinical/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="53" selection-start-line="2" selection-start-column="53" selection-end-line="2" selection-end-column="53" />
+          <folding>
+            <marker date="1545606807834" expanded="true" signature="1077:1144" ph="..." />
+            <marker date="1545606807834" expanded="true" signature="1206:2212" ph="..." />
+            <marker date="1545606807834" expanded="true" signature="2028:2212" ph="..." />
           </folding>
         </state>
       </provider>
