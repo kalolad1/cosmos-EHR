@@ -64,7 +64,7 @@ def store_variants(request):
     when new variants are added.
     """
     variant_parsing_script.store_all_variant_samples()
-    return render(request, 'homepage.html')
+    return render(request, 'landing-page.html')
 
 
 @login_required
@@ -135,3 +135,9 @@ def genome_scan(request, variant_id):
                                                          'snp_exists': scan.snp_exists,
                                                          'proximate_sequence_front': scan.proximate_sequence_front,
                                                          'proximate_sequence_back': scan.proximate_sequence_back})
+
+
+# Testing
+def test_html(request):
+    return render(request, 'health-story-base.html')
+

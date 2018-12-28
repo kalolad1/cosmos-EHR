@@ -7,7 +7,7 @@ def homepage(request):
     if request.user.is_authenticated:
         return redirect('clinical/home')
 
-    return render(request, 'homepage.html')
+    return render(request, 'landing-page.html')
 
 
 
