@@ -12,6 +12,6 @@ venv/
 config/
 .DS_store
 clinical/static/
-*.idea/
+.idea/
 genomes/
 product\ images/
