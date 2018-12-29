@@ -1,0 +1,17 @@
+{% extends 'health-story-base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block main_content %}
+    {# Home section #}
+    <section id="home-section">
+        <div class="home-content">
+            <img src="{% static 'patient_story_basic/images/profile.jpg'%}" alt="User profile picture.">
+            <h4>Every patient has a story.</h4>
+            <h2>What's Akshar Kalola's?</h2>
+        </div>
+    </section>
+{% endblock %}

@@ -26,7 +26,7 @@
                                         <div class="btn-group">
                                             <a role="button" href="javascript:{document.getElementById('go-to-entry-{{ patient.id }}').submit();}" class="btn btn-sm btn-outline-secondary">View</a>
                                         </div>
-                                        <form id="go-to-entry-{{ patient.id }}" method="GET" action="{% url 'clinical/patient-story' patient_id=patient.id %}">
+                                        <form id="go-to-entry-{{ patient.id }}" method="GET" action="{% url 'clinical/health-story' patient_id=patient.id section="home" %}">
                                         </form>
                                         <small class="text-muted">First visit: {{ patient.date_of_first_visit }}</small>
                                     </div>

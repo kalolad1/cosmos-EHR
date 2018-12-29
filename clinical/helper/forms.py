@@ -1,6 +1,6 @@
 from django import forms
 from clinical.helper import choices
-from .models import HealthEncounter
+from clinical.models import HealthEncounter
 
 
 class PatientForm(forms.Form):

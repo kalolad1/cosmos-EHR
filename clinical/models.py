@@ -141,61 +141,6 @@ class Patient(models.Model):
 #         return self.first_name + " " + self.last_name
 
 
-class Variant(models.Model):
-    gene_id = models.CharField(max_length=50)
-    gene_name = models.CharField(max_length=100)
-    phenotype_list = models.CharField(max_length=200)
-    start = models.IntegerField()
-    stop = models.IntegerField()
-    clinical_significance = models.CharField(max_length=200)
-    chromosome = models.IntegerField()
-    reference_allele = models.CharField(max_length=1)
-    alternate_allele = models.CharField(max_length=1)
-
-    def __str__(self):
-        """
-        Returns a string representation of a Variant object.
-
-        Returns:
-             string: String containing the gene name of the variant.
-        """
-        return self.gene_name
-
-    def related_diagnosis(self):
-        """
-        Returns the diagnosis related to the variant object.
-
-        Returns:
-             string: String representation of a diagnosis
-        """
-        for diagnosis, gene in constants.DIAGNOSES_TO_GENE.items():
-            if self.gene_id == gene:
-                return diagnosis
-        return "No diagnosis available"
-
-    @staticmethod
-    def retrieve_variants_from_diagnosis_list(d_list):
-        """
-        Finds all relevant variants from a list of diagnoses.
-
-        Params:
-            d_list: A string containing comma separated diagnoses.
-
-        Returns:
-             QuerySet: A set of Variant objects which are relevant to all the diagnoses.
-        """
-        # Creates an array of diagnoses.
-        d_list_array = d_list.split(', ')
-
-        # Retrieves all relevant gene_IDS from DIAGNOSES_TO_GENE_MAPPING dictionary.
-        gene_IDs = [constants.DIAGNOSES_TO_GENE[i] for i in d_list_array if i in constants.DIAGNOSES_TO_GENE]
-
-        # Retrieves all Variant objects associated with the genes in genes_IDs.
-        relevant_variants = Variant.objects.filter(gene_id__in=gene_IDs)
-
-        return relevant_variants
-
-
 class HealthEncounter(models.Model):
     # Parties involved.
     physician = models.ForeignKey(User, on_delete=models.CASCADE)
